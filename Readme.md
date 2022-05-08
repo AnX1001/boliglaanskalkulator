@@ -3,7 +3,7 @@
 2. Lag TestNavn.test.js fil
 3. Skriv tester.
 4. Legg til "test": "jest" i package.json under "scripts".
-5. Kjør tested med npm run test
+5. Kjør tester med npm run test
 
 *Oppsett av testmiljø*
 
