@@ -1,3 +1,5 @@
+
+
 const $ = document.querySelector.bind(document);
 
 // DOM-referanser for input-felter
@@ -50,7 +52,6 @@ inpNumbers.forEach(function (all) {
 });
 
 // Vis utregning av lånebehov (totalpris minus egenkapital) trigges av input number.
-
 inpNumbers.forEach(function (all) {
   all.addEventListener("input", function () {
     const totalprisX = boligpris.value;
@@ -67,12 +68,15 @@ inpNumbers.forEach(function (all) {
   });
 });
 
-// slider for kun total pris og egenkapital, egne funksjoner
+export function kalkulerLanebehov(totalprisX, egenkapitalX) {
+  return totalprisX - egenkapitalX;
+}
 
+// sliders totalpris & egenkapital
 let slidersY = document.querySelectorAll(".sliderY");
 // kjor function ved input for all slider's
 // vis utregning for lanebelop ved justering av sliders
-slidersY.forEach(function (all) {
+const demo = slidersY.forEach(function (all) {
   all.addEventListener("input", function () {
     // slider input set = input number
     boligpris.value = slider_boligpris.value;
@@ -82,11 +86,8 @@ slidersY.forEach(function (all) {
     const totalprisX = boligpris.value;
     const egenkapitalX = egenkapital.value;
 
-    function y(totalprisX, egenkapitalX) {
-      return totalprisX - egenkapitalX;
-    }
-
     // utregning i innerHTML
     $(".laneBehov").innerHTML = y(totalprisX, egenkapitalX);
   });
 });
+
